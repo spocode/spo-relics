@@ -1,0 +1,164 @@
+/* Imports */
+
+$legacy-support-for-ie5: false;
+$legacy-support-for-ie6: false;
+$experimental-support-for-pie: true;
+$pie-behavior: url("css/PIE.htc");
+$pie-base-class: pie-element;
+
+/* Breakpoints */
+$mob: "max-width: 480px";
+$tab: "max-width: 767px";
+
+@import "compass";
+@import "breakpoint";
+@import "_colors";
+@import "_type";
+
+/* Main Styling */
+
+body {
+	margin: 0;
+}
+
+header {
+	padding: 5%;
+	text-align: center;
+	background: $tealish url(../img/header-border.png) bottom center repeat-x;
+	clear: both;
+	h1 {
+		color: $white;
+		margin: -20px 0 0;
+	}
+}
+
+#filters {
+	width: 100%;
+	padding: 20px 0;
+	background: $sandy;
+	@extend .cf;
+	.content {
+		width: 70%;
+		float: right;
+		@media ($tab) {
+			width: 90%;
+			margin-left: 10%;
+			float: none
+		}
+	}
+	h5 {
+		margin-right: 20px;
+		display: inline;
+	}
+}
+
+aside {
+	width: 30%;
+	min-height: 700px;
+	padding: 0;
+	float: left;
+	border-bottom: 2px solid $brown;
+	@media ($tab) {
+		width: 100%;
+		min-height: 300px;
+		float: none;
+	}
+}
+
+#map-canvas {
+	height: 100%;
+	min-height: 700px;
+	@media ($tab) {
+		min-height: 300px;
+	}
+}
+
+main {
+	width: 70%;
+	float: right;
+	@media ($tab) {
+		width: 100%;
+		margin: 0;
+		float: none;
+	}
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	&#property_header {
+		font-weight: bold;
+		color: $white;
+		background: $brown;
+		border-bottom: 2px solid $white;
+		span {
+			border-color: $white;
+		}
+	}
+	&#property_list {
+		li:nth-child(odd) {
+			background: $l-brown;
+		}
+	}
+}
+
+li {
+	list-style: none;
+	@extend .cf;
+	span {
+		padding: 2.5%;
+		float: left;
+		border-left: 1px solid $gray;
+		@include box-sizing(border-box);
+		&:first-child {
+			border-left: none;
+		}
+		&.location {
+			width: 5%;
+			padding: 2.5% 0;
+			text-align: center;
+			font-size: 125%;
+			i {
+				margin: -2px 0;
+				display: block;
+			}
+		}
+		&.name {
+			width: 40%;
+		}
+		&.date {
+			width: 15%;
+			text-align: center;
+		}
+		&.architect {
+			width: 40%;
+		}
+	}
+}
+
+footer {
+	padding: 2.5%;
+	background: $brown;
+	clear: both;
+}
+
+/* classes */
+
+.cf {
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
